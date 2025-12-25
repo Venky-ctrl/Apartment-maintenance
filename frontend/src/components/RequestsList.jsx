@@ -36,15 +36,17 @@ const RequestsList = () => {
 
   return (
     <div className="requests-layout">
-      <div>
-        <div className="card">
-          <h2>Create request</h2>
-          <p className="card-subtitle">
-            Describe the issue so your landlord can resolve it quickly.
-          </p>
-          <RequestForm onCreated={fetchRequests} />
+      {user?.role === "tenant" && (
+        <div>
+          <div className="card">
+            <h2>Create request</h2>
+            <p className="card-subtitle">
+              Describe the issue so your landlord can resolve it quickly.
+            </p>
+            <RequestForm onCreated={fetchRequests} />
+          </div>
         </div>
-      </div>
+      )}
 
       <div>
         {error && <p className="error-text">{error}</p>}
