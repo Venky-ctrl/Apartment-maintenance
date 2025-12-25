@@ -5,16 +5,16 @@ const sqlite3 = require("sqlite3");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const JWT_SECRET = "MY_SECRET_KEY";
+
+const app = express();
+app.use(express.json());
 app.use(
   cors({
     origin: "*",
     credentials: true,
   })
 );
-const JWT_SECRET = "MY_SECRET_KEY";
-
-const app = express();
-app.use(express.json());
 
 const dbPath = path.join(__dirname, "maintenance.db");
 
